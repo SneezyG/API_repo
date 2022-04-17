@@ -1,5 +1,9 @@
 import os
 from dotenv import load_dotenv
+
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
 load_dotenv()
 
 """
@@ -35,13 +39,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'elements.apps.ElementsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "graphene_django",
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,7 +59,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 temp = os.getenv('templates')
+
 
 ROOT_URLCONF = 'API.urls'
 
