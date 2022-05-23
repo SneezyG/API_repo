@@ -5,7 +5,9 @@ import csv
 import os
 from django.db import transaction
 from django.db import IntegrityError
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def load(apps, schema_editor):
   Elements = apps.get_model('elements', 'Elements')

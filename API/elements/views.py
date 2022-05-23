@@ -1,22 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import pandas as pd
-import json
-import os
 from dotenv import load_dotenv
 # import sentry_sdk
-import functools
 
 load_dotenv()
-
-@functools.lru_cache
-def load_data():
-  # read the csv file and return the data
-  data = pd.read_csv(os.getenv('file'))
-  data.index = list(data.element)
-  return data
-  
-
 
 
 # home view
@@ -29,19 +16,8 @@ def guide(request):
 
 # API view with logging.
 def data(request, element):
-  data = load_data()
-  try:
-    data = data.loc[element, :]
-  except:
-    return HttpResponse("not found", status=404)
+  pass
   
- 
-  # convert data to json format
-  data = data.to_json(orient='index')
-  parsed_data = json.loads(data)
-  data = json.dumps(parsed_data, indent = 4)
-  
-  return HttpResponse(data, content_type='application/json')
 
 
 """

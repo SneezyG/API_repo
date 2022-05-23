@@ -29,7 +29,7 @@ from elements.schema import schema
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('elements/', include(('elements.urls', 'elements'), namespace='elements')),
+    path('/', include(('elements.urls', 'elements'), namespace='elements')),
     path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
     
 ]

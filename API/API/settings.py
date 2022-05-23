@@ -60,7 +60,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-temp = os.getenv('templates')
 
 
 ROOT_URLCONF = 'API.urls'
@@ -68,7 +67,7 @@ ROOT_URLCONF = 'API.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [temp,],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
