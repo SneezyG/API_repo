@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from dotenv import load_dotenv
 from elements.models import Elements, AllElements, constants, users
 from werkzeug.security import check_password_hash, generate_password_hash
 import secrets, string
