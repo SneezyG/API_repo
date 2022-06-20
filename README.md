@@ -1,2 +1,2 @@
-# CHEM_API
-A web app providing chemistry data through api
+# science
+A web app providing science data through api
