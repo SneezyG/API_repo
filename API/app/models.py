@@ -3,22 +3,7 @@ from datetime import datetime
 # Create your models here.
 
 
-date = datetime.now()
-date = date.strftime("%m/%d/%Y, %H:%M:%S")
-
-class Elements(models.Model):
-  element = models.CharField(max_length=20)
-  symbol = models.CharField(max_length=5)
-  atomic_no = models.IntegerField()
-  mass_no = models.FloatField()
-  group = models.IntegerField()
-  kind = models.CharField(max_length=30)
-  
-  def __str__(self):
-     return self.element
-  
-  
-class AllElements(models.Model):
+class Element(models.Model):
   atomic_no = models.CharField(max_length=200, default='')
   element = models.CharField(max_length=200, default='')
   symbol = models.CharField(max_length=200, default='')
@@ -52,28 +37,39 @@ class AllElements(models.Model):
      return self.element
 
 
-class constants(models.Model):
+class ChemicalConstant(models.Model):
   constant = models.CharField(max_length=200)
   symbol = models.CharField(max_length=200)
   value = models.CharField(max_length=200)
   
   def __str__(self):
      return self.constant
-     
-     
-def path(instance, filename):
-  return 'user_{0}/{1}'.format(instance.id, filename)
-
-     
-class users(models.Model):
-  user = models.CharField(max_length=200)
-  password = models.CharField(max_length=200)
-  mug_shot = models.ImageField(upload_to=path, null=True)
-  project_key = models.CharField(max_length=500)
-  secret_key = models.CharField(max_length=500)
-  mail = models.EmailField(max_length=300, null=True)
-  project_name = models.CharField(max_length=200, default="")
-  user_age = models.CharField(max_length=200, default= date)
+  
+   
+  
+   
+class Particle(models.Model):
+  name = models.CharField(max_length=30)
+  kind = models.CharField(max_length=30)
+  spin = models.CharField(max_length=100)
+  charge = models.CharField(max_length=100)
+  mass = models.CharField(max_length=100)
   
   def __str__(self):
-     return self.users
+     return self.name
+  
+  
+class PhysicalConstant(models.Model):
+  name = models.CharField(max_length=100)
+  value = models.CharField(max_length=100)
+  unit = models.CharField(max_length=30)
+  uncertainty = models.CharField(max_length=100)
+  
+  def __str__(self):
+     return self.name
+  
+  
+  
+
+
+     
