@@ -26,3 +26,4 @@ class ParticleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Particle
         fields = "__all__"
+       

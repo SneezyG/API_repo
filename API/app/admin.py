@@ -1,3 +1,4 @@
+"""
 from django.contrib import admin
 from .models import Element, ChemicalConstant, PhysicalConstant, Particle
 
@@ -11,3 +12,5 @@ admin.site.register(Particle)
 
 class AuthorAdmin(admin.ModelAdmin):
   pass
+
+"""

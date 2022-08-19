@@ -1,3 +1,4 @@
+
 import graphene
 from graphene_django import DjangoObjectType
 from django.http import JsonResponse
@@ -36,7 +37,7 @@ class Query(graphene.ObjectType):
   
   physicalconstant = graphene.Field(PhysicalConstantType, name=graphene.String(required=True))
   
-  Particle = graphene.Field(ParticleType, name=graphene.String(required=True))
+  particle = graphene.Field(ParticleType, name=graphene.String(required=True))
   
    
   def resolve_element(root, info, name):
@@ -59,8 +60,9 @@ class Query(graphene.ObjectType):
 
   def resolve_particle(root, info, name):
     try:
-      return Particle.objects.get(element=name)
+      return Particle.objects.get(name=name)
     except Particle.DoesNotExist:
       return None
 
 schema = graphene.Schema(query=Query)
+
