@@ -26,10 +26,9 @@ router.register(r'particle', restView.ParticleViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-  
+    path('rest/', include(('app.urls', 'app'), namespace='apps')),
     path('rest/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
-    path('', include(('app.urls', 'app'), namespace='apps')),
     path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
     
 ]

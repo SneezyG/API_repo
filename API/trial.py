@@ -17,16 +17,12 @@ def rest():
   particles = requests.get("http://127.0.0.1:8000/rest/particle")
   
   
-  # absolute url
-  tenthElement = requests.get("http://127.0.0.1:8000/rest/element/10")
-  
-  
   # apiview
-  calcium = requests.get("http://127.0.0.1:8000/element/Calcium")
+  calcium = requests.get("http://127.0.0.1:8000/rest/element/Calcium")
   
   
   print("particles: \n", json.dumps(particles.json(), indent=2), "\n")
-  print("tenthElement: \n", json.dumps(tenthElement.json(), indent=2), "\n")
+  
   print("calcium: \n", json.dumps(calcium.json(), indent=2), "\n")
   
  
