@@ -42,13 +42,13 @@ class Query(graphene.ObjectType):
    
   def resolve_element(root, info, name):
     try:
-      return Element.objects.get(element=name)
+      return Element.objects.get(name=name)
     except Element.DoesNotExist:
       return None
   
   def resolve_chemicalconstant(root, info, name):
     try:
-      return ChemicalConstant.objects.get(constant=name)
+      return ChemicalConstant.objects.get(name=name)
     except ChemicalConstant.DoesNotExist:
       return None
 
