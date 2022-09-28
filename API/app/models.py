@@ -5,27 +5,27 @@ from datetime import datetime
 
 class Element(models.Model):
   atomic_no = models.CharField(max_length=200, default='')
-  element = models.CharField(max_length=200, default='')
+  name = models.CharField(primary_key=True, max_length=200, default='')
   symbol = models.CharField(max_length=200, default='')
   atomic_mass = models.CharField(max_length=200, default='')
   neurons = models.CharField(max_length=200, default='')
   protons = models.CharField(max_length=200, default='')
-  Electrons = models.CharField(max_length=200, default='')
+  electrons = models.CharField(max_length=200, default='')
   period = models.CharField(max_length=200, default='')
   group = models.CharField(max_length=200, default='')
   phase = models.CharField(max_length=200, default='')
   radioactive = models.BooleanField()
   natural = models.BooleanField()
   metal = models.BooleanField()
-  Nonmetal = models.BooleanField()
+  nonmetal = models.BooleanField()
   metalloid = models.BooleanField()
   kind = models.CharField(max_length=200, default='')
   atomic_radius = models.CharField(max_length=200, default='')
   eletro_negativity = models.CharField(max_length=200, default='')
   ionization_Energy = models.CharField(max_length=200, default='')
-  Density = models.CharField(max_length=200, default='')
-  Melting_point = models.CharField(max_length=200, default='')
-  Boiling_point = models.CharField(max_length=200, default='')
+  density = models.CharField(max_length=200, default='')
+  melting_point = models.CharField(max_length=200, default='')
+  boiling_point = models.CharField(max_length=200, default='')
   isotopes = models.CharField(max_length=200, default='')
   discoverer = models.CharField(max_length=200, default='')
   year = models.CharField(max_length=200, default='')
@@ -34,22 +34,22 @@ class Element(models.Model):
   valence_electron = models.CharField(max_length=200, default='')
   
   def __str__(self):
-     return self.element
+     return self.name
 
 
 class ChemicalConstant(models.Model):
-  constant = models.CharField(max_length=200)
+  name = models.CharField(primary_key=True, max_length=200)
   symbol = models.CharField(max_length=200)
   value = models.CharField(max_length=200)
   
   def __str__(self):
-     return self.constant
+     return self.name
   
    
   
    
 class Particle(models.Model):
-  name = models.CharField(max_length=30)
+  name = models.CharField(primary_key=True, max_length=30)
   kind = models.CharField(max_length=30)
   spin = models.CharField(max_length=100)
   charge = models.CharField(max_length=100)
@@ -61,7 +61,7 @@ class Particle(models.Model):
  
 
 class PhysicalConstant(models.Model):
-  name = models.CharField(max_length=100)
+  name = models.CharField(primary_key=True, max_length=100)
   value = models.CharField(max_length=100)
   unit = models.CharField(max_length=30)
   uncertainty = models.CharField(max_length=100)
