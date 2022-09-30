@@ -108,11 +108,11 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 }
 
-"""
+
 GRAPHENE = {
-    "SCHEMA": BASE_DIR / "schema.schema",
+    #"SCHEMA": BASE_DIR / "schema.schema",
+    "ATOMIC_MUTATIONS": True,
 }
-"""
 
 
 # Password validation

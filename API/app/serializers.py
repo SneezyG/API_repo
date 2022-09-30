@@ -6,7 +6,7 @@ from graphene_django import DjangoObjectType
   
         
 """
-serializers class for restfull api endpoint.
+model serializers class for restfull api endpoint.
 """
 class ElementSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -38,24 +38,24 @@ class ParticleSerializer(serializers.HyperlinkedModelSerializer):
 
 
 """
-serializers class for graphql api endpoint.
+model serializers class for graphql api endpoint.
 """
 class ElementType(DjangoObjectType):
   class Meta:
     model = Element
-    field = "__all__"
+    
 
 class ChemicalConstantType(DjangoObjectType):
   class Meta:
     model = ChemicalConstant
-    field = "__all__"
+  
     
 class PhysicalConstantType(DjangoObjectType):
   class Meta:
     model = PhysicalConstant
-    field = "__all__"
+    
     
 class ParticleType(DjangoObjectType):
   class Meta:
     model = Particle
-    field = "__all__"       
+        
