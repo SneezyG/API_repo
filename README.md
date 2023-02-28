@@ -1,7 +1,7 @@
 # science
 A web-app providing science-data through API.
 
-This application is rather a simple datastore with interfaces to query, add, change and delete data entries. There exist two interfaces for this application:
+This application is rather a simple datastore with interfaces to query, add, change and delete data. There exist two interfaces for this application:
 
 1. RESTFUL interface.
 2. GraphQL interface.
